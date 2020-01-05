@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+ name: my-pod
+spec:
+ containers:
+ - name: live
+   image: busybox
+   command: ['sh','-c','echo helloworld && sleep 60']
+   livenessProbe:
+    exec:
+     command:
+     - echo
+     - testing
+    initialDelaySeconds: 5
+    periodSeconds: 5
+ - name : read
+   image : nginx
+   readinessProbe:
+    httpGet:
+     path: /
+     port: 80
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    

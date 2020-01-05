@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+ name: my-sc
+ namespace: my-ns
+stringData:
+ mykey: mypass
+ name: girish

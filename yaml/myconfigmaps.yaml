@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ labels:
+  app: myapp-1
+ name: my-podns
+ namespace: my-ns
+spec:
+ containers:
+ - name: mycon
+   image: busybox
+   command: ['sh','-c','echo helloworld $(cat /etc/config/name) && sleep 3600']
+   volumeMounts:
+   - name: configdata
+     mountPath: /etc/config
+ volumes:
+ - name: configdata
+   configMap:
+    name: my-config-map
+      
+ 
+

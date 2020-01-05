@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ labels:
+  app: myalabel-1
+ namespace: my-ns
+ name: mycont-args
+spec:
+ containers:
+ - name: mycont
+   image: busybox
+   command: ['echo']
+   args: ['hello girish']
+ restartPolicy: Never

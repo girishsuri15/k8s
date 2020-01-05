@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: my-pods
+ namespace: my-ns
+spec:
+ serviceAccountName: serviceaccount-dev
+ containers:
+ - name: my-cont
+   image : busybox
+   command: ['sh','-c','echo heelo && sleep 3600']
+

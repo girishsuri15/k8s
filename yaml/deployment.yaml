@@ -1,0 +1,25 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+ name: nginx-deployment
+ labels:
+  app: mylabel
+  env: prod
+ annotations:
+  owner: girish
+ namespace: my-ns
+spec:
+ replicas: 3
+ selector:
+  matchLabels: 
+   service: nginx
+ template:
+  metadata:
+   labels:
+    service: nginx
+  spec:
+   containers:
+   - name: nginximage
+     image: nginx:1.7.1
+     ports:
+     - containerPort: 80

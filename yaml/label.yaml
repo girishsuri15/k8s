@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: labelt
+ labels:
+  app: mylabel
+  env: development
+spec: 
+ containers:
+ - name: nginximage
+   image: nginx
+   ports:
+   - containerPort: 80
